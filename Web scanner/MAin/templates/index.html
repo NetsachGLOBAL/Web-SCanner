@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Scanner</title>
+</head>
+<body>
+    <h1>Website Security Scanner</h1>
+    <form action="/" method="post">
+        <label for="url">Enter URL to scan:</label>
+        <input type="text" id="url" name="url" placeholder="http://example.com" required />
+        <button type="submit">Scan</button>
+    </form>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
