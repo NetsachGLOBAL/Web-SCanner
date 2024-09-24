@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Vulnerability Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Website Vulnerability Scanner</h1>
+        
+        <form method="POST" action="/">
+            <label for="url">Enter Website URL:</label>
+            <input type="text" id="url" name="url" placeholder="example.com" required>
+            <button type="submit">Scan</button>
+        </form>
+
+        {% if vulnerabilities %}
+        <div class="results">
+            <h2>Results for {{ url }}</h2>
+            <ul>
+                {% for vulnerability in vulnerabilities %}
+                <li>{{ vulnerability }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% elif url %}
+        <p>No vulnerabilities found for {{ url }}.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
